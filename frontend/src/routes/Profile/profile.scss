@@ -1,0 +1,76 @@
+.profile1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 595px;
+    width: 100%;
+    box-sizing: border-box;
+    background-image: url("/assets/l1.png");
+    background-size: cover; /* Ensures the image covers the full area */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; 
+    //background-color: #4e4e4e;
+
+    .container{
+        
+        flex-direction: column;
+        width: 400px;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        margin: 20px;
+        border: 1px solid white; /* Keeps the thin white border */
+        border-radius: 10px;
+        background-color: #939347; 
+
+        .title{
+        background-color: rgb(210, 222, 43); /* Set the background color to blue */
+        color: rgb(6, 6, 6); /* Set the text color to white */
+        padding: 15px; /* Add padding for spacing */
+        border-radius: 8px; /* Add rounded corners */
+        text-align: center; /* Center the text */
+        font-size: 24px; /* Adjust font size */
+        font-weight: bold; /* Make it bold */
+        margin-bottom: 20px;
+        flex: 1;
+        }
+        
+        .profile-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 10px; // Adds space between rows
+      
+            td {
+              padding: 15px;
+              background-color: #f2f5f496; // Set a single color for all rows
+              border-radius: 5px;
+      
+              &:first-child {
+                font-weight: bold;
+                color: #020202;
+                text-align: left;
+                width: 40%;
+               font-size: 20px;
+              }
+      
+              &:last-child {
+                text-align: right;
+                color: #820505;
+                font-size: 20px;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+              }
+            }
+      
+            tr {
+              transition: background-color 0.3s ease;
+      
+              &:hover {
+                background-color: #c7e2c7; // Slightly darker green on hover
+              }
+            }
+        }
+    }
+}

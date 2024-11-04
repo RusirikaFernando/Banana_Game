@@ -1,0 +1,51 @@
+.homePage{
+    display: flex; /* Enables flexbox on .login */
+    align-items: center; /* Centers .formContainer vertically */
+    justify-content: center; /* Centers .formContainer horizontally */
+    height: 595px;
+    width: 100%;
+    background-image: url("/assets/black1.png");
+    background-size: cover; /* Ensures the image covers the full area */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents tiling */
+    /* Adds margin-like space within the container */
+    box-sizing: border-box;
+
+    .wrapper1 {
+        margin-right: 80px;
+        margin-bottom: 80px;
+        display: flex; /* Ensures flexbox layout */
+        flex-direction: column; /* Stacks items vertically */
+        gap: 40px; /* Space between flex items */
+    
+
+      
+            a {
+                text-decoration: none; /* Removes the underline from hyperlinks */
+                color: inherit; /* Optional: inherit color from parent */
+                
+                &:hover {
+                    text-decoration: underline; /* Optional: add underline on hover */
+                }
+                .play, .leaderboard {
+                    width: 100%; /* Makes each box take full width of the wrapper */
+                    padding: 20px; /* Increase padding inside the boxes for height */
+                    text-align: center; /* Centers text inside the box */
+                    border-radius: 5px; /* Round corners */
+                    background-color: #dae247; /* Darker background for boxes */
+                    color: rgb(2, 2, 2); /* Text color */
+                    font-size: 24px; /* Increase font size for better visibility */
+                    cursor: pointer; /* Changes cursor to pointer on hover */
+                    transition: background-color 0.3s; /* Smooth transition on hover */
+                    
+                    &:hover {
+                        background-color: #e599c4; /* Change background color on hover */
+                    }
+        
+            }
+            
+        }
+    }
+    
+
+}

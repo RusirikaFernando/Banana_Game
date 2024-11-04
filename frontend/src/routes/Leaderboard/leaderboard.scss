@@ -1,0 +1,83 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 595px;
+    width: 100%;
+    box-sizing: border-box;
+    background-image: url("/assets/l1.png");
+    background-size: cover; /* Ensures the image covers the full area */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; 
+    //background-color: #4e4e4e;
+    
+    .title{
+        background-color: rgb(50, 148, 209); /* Set the background color to blue */
+        color: white; /* Set the text color to white */
+        padding: 15px; /* Add padding for spacing */
+        border-radius: 8px; /* Add rounded corners */
+        text-align: center; /* Center the text */
+        font-size: 24px; /* Adjust font size */
+        font-weight: bold; /* Make it bold */
+        
+        
+    
+    }
+  
+    .leaderboard-container {
+        flex: 3;
+      max-height: 400px;
+      overflow-y: auto;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin: 0 auto;
+      width: 50%;
+      display: flex;
+      margin-top: 40px;
+    }
+  
+    .leaderboard-table {
+      width: 100%;
+      border-collapse: collapse;
+  
+      thead {
+        position: sticky;
+        top: 0;
+        background-color: #64511e;
+        color: white;
+        text-align: left;
+      }
+  
+      th, td {
+        padding: 12px 15px;
+        text-align: left;
+        //border-bottom: 1px solid #ddd;
+      }
+  
+      th {
+        font-weight: bold;
+      }
+  
+     /* Apply specific colors to rows */
+    tbody tr:nth-child(1) {
+        background-color: rgb(228, 80, 80); /* Red */
+      }
+      tbody tr:nth-child(2) {
+        background-color: rgb(253, 197, 93); /* Orange */
+      }
+      tbody tr:nth-child(3) {
+        background-color: rgb(227, 227, 136); /* Yellow */
+      }
+  
+      /* Set all other rows to white */
+      tbody tr:nth-child(n+4) {
+        background-color: white;
+      }
+      /* Black border for each row */
+      tbody tr {
+        border: 1px solid black;
+      }
+    }
+  }
+  

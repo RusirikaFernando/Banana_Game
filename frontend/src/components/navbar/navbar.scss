@@ -1,0 +1,100 @@
+nav {
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #dadd6b;
+    border: 2px solid rgb(93, 87, 34);
+   
+  
+    a {
+      transition: all 0.4s ease;
+  
+      &:hover {
+        scale: 1.05;
+      }
+    }
+  
+    .left {
+        display: flex;
+        align-items: center;
+        height: 80px;
+        width: 140px;
+        padding: 0 20px;
+        margin-left: 10px;
+        background-color: #dadd6b;
+      border: 1px solid rgb(14, 13, 13);
+      border-radius: 10px;
+     
+  
+      .logo {
+        font-weight: bold;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+  
+        img {
+          width: 28px;
+        }
+  
+        span{
+            color: black;
+        }
+      }
+    }
+
+    .right {
+      flex: 2;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      background-color: #dadd6b;
+      height: 100%;
+  
+     
+      a {
+        padding: 12px 24px;
+        margin: 20px;
+      }
+  
+      .user{
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+  
+        img{
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          object-fit: cover;
+          margin-right: 20px;
+        }
+  
+        
+  
+        .profile{
+          padding: 15px 28px;
+          background-color: #4e4e4e;
+          cursor: pointer;
+          border: none;
+          position: relative;
+          border: 1px solid rgb(14, 13, 13);
+          
+          span {
+            color: rgb(247, 243, 243);
+            font-size: 15px;
+           font-weight: bold;
+        }
+        &:hover {
+          background-color: #080808; /* Change background color on hover */
+      }
+  
+        }
+      }
+  
+      .register {
+        background-color: #161514;
+      }
+    }
+}
