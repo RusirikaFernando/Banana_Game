@@ -23,6 +23,7 @@ export const register = async (req, res) => {
     // CREATE A NEW USER AND SAVE TO DB
     const newUser = new User({ username, email, password: hashedPassword });
     await newUser.save();
+    console.log("New user saved to the database successfully.");
  
     res.status(201).json({ message: "User created successfully" });
   } catch (err) {

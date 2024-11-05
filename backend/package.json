@@ -7,7 +7,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/index.js",
-    "docs": "jsdoc src -d docs"
+    "docs": "jsdoc src -d docs",
+    "start": "console-ninja node --env-file .env --watch index.js"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +23,7 @@
     "mongoose": "^8.8.0"
   },
   "devDependencies": {
+    "console-ninja": "^1.0.0",
     "jsdoc": "^4.0.4",
     "nodemon": "^3.1.7"
   }
