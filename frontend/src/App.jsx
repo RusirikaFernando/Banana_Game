@@ -8,6 +8,7 @@ import Leaderboard1 from "./routes/Leaderboard/Leaderboard1";
 import HomePage from "./routes/Homepage/home";
 import Profile from "./routes/Profile/profile";
 import LevelBoard from "./routes/levels/LevelBoard";
+import Game from "./routes/Game/Game";
 
  
  
@@ -41,7 +42,8 @@ function App() {
         {
           path: "/levelboard", 
           element: <LevelBoard />
-        }
+        },
+        { path: "/game", element: <Game /> },
        
       ],
     },
