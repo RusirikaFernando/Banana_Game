@@ -4,7 +4,7 @@ function HomePage() {
   return (
     <div className="homePage">
       <div className="wrapper1">
-        <a href="/leaderboard">
+        <a href="/levelboard">
           <div className="play">PLAY</div>
         </a>
         <a href="/leaderboard">

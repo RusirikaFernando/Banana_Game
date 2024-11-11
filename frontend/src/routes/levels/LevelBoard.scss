@@ -1,0 +1,59 @@
+/* Wrapper for the entire LevelBoard content */
+.level-board-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;height: 595px;
+    width: 100%;
+    background-image: url("/assets/black1.png");
+    background-size: cover; /* Ensures the image covers the full area */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents tiling */
+    /* Adds margin-like space within the container */
+    box-sizing: border-box;
+  }
+  
+  /* Heading style */
+  .title2{
+    width: 300px; /* Makes each box take full width of the wrapper */
+    height: 80px;
+   
+    text-align: center; /* Centers text inside the box */
+    border-radius: 5px; /* Round corners */
+    background-color: #dae247; /* Darker background for boxes */
+    color: rgb(2, 2, 2); /* Text color */
+    font-size: 20px; /* Increase font size for better visibility */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+    transition: background-color 0.3s; /* Smooth transition on hover */
+    margin-bottom: 20px;
+  }
+   
+  
+  /* Container for the buttons */
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #000; /* Black background */
+    padding: 70px;
+    border-radius: 8px;
+  }
+  
+  /* Styling for each button */
+  .button-container button {
+    background-color: #fff; /* White background for the button */
+    color: #000000;
+    font-size: 1.25rem;
+    padding: 20px;
+    margin: 0.5rem 0; /* Space between buttons */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Hover effect for buttons */
+  .button-container button:hover {
+    background-color: #e599c4; /* Darker gray on hover */
+    color: #010101;
+  }
+  
