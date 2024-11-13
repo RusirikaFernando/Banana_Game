@@ -103,13 +103,13 @@ function Game() {
         <>
           <div className="left-box">
             <p>Time Left: {timeLeft}s</p>
-            <span>🎵</span> {/* Music Icon Placeholder */}
+            <span className="countdown-timer">🎵</span> {/* Music Icon Placeholder */}
           </div>
 
           <div className="middle-box">
             <div className="upper-part">
               <h2>Find the Banana Value</h2>
-              <p>Question : {questionNumber}</p>
+              <p>Question: {questionNumber}</p>
             </div>
 
             {questionData && (
@@ -117,6 +117,11 @@ function Game() {
                 <img src={questionData.question} alt="Banana question" className="question-image" />
               </div>
             )}
+
+            {/* Feedback message */}
+            <p className={`message ${message === "Correct!" ? "correct" : "wrong"}`}>
+              {message}
+            </p>
 
             <div className="lower-part">
               <div className="number-buttons">
