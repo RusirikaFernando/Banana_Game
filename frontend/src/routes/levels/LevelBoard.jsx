@@ -14,9 +14,9 @@ function LevelBoard() {
     <div className="level-board-wrapper">
      <div className="title2"><h2>Select your level</h2></div> 
       <div className="button-container">
-        <button onClick={() => startGame(5)}>5 Chances</button>
-        <button onClick={() => startGame(3)}>3 Chances</button>
-        <button onClick={() => startGame(1)}>1 Chance</button>
+        <button onClick={() => startGame(5)}>Easy</button>
+        <button onClick={() => startGame(3)}>Medium</button>
+        <button onClick={() => startGame(1)}>Hard </button>
       </div>
     </div>
   );
