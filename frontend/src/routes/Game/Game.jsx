@@ -14,6 +14,11 @@ function Game() {
   const [timeLeft, setTimeLeft] = useState(60);
   const [gameOver, setGameOver] = useState(false);
   const [message, setMessage] = useState("");
+  const [score, setScore] = useState(0); // New state for score
+
+  // Hardcoded user information
+  const userId = "6452341";
+  const username = "feb";
 
   useEffect(() => {
     if (!location.state) {
@@ -45,7 +50,7 @@ function Game() {
     } else {
       setChances((prevChances) => {
         if (prevChances - 1 <= 0) {
-          setGameOver(true);
+          endGame();
           setMessage("Game Over! All chances are used.");
         } else {
           setMessage("Answer is wrong. Try again!");
@@ -53,6 +58,37 @@ function Game() {
         return prevChances - 1;
       });
     }
+  };
+
+  const endGame = async () => {
+    setGameOver(true);
+    setQuestionData(null);
+
+    // Calculate score and set it in the state
+    const calculatedScore = calculateScore(location.state?.level, solvedCount);
+    setScore(calculatedScore);
+
+    // Create the JSON object to send
+    const scoreData = {
+      userId: userId,
+      username: username,
+      score: calculatedScore,
+      date: new Date().toISOString()
+    };
+
+    // Send score to the server
+    try {
+      await axios.post("http://localhost:8800/add-score/add-score", scoreData);
+      console.log("Score sent successfully:", scoreData);
+    } catch (error) {
+      console.error("Error sending score:", error);
+    }
+  };
+
+  // Score calculation logic
+  const calculateScore = (level, solved) => {
+    const baseScore = level === "hard" ? 20 : level === "medium" ? 10 : 5;
+    return baseScore * solved;
   };
 
   useEffect(() => {
@@ -69,7 +105,7 @@ function Game() {
     const timer = setInterval(() => {
       setTimeLeft((prevTime) => {
         if (prevTime === 1) {
-          setGameOver(true);
+          endGame();
           setMessage("Game Over! Time is up.");
           return 0;
         }
@@ -80,13 +116,6 @@ function Game() {
     return () => clearInterval(timer);
   }, []);
 
-  useEffect(() => {
-    if (gameOver) {
-      setQuestionData(null);
-      setUserAnswer("");
-    }
-  }, [gameOver]);
-
   const handleNumberClick = (number) => {
     setUserAnswer(number.toString());
   };
@@ -96,7 +125,7 @@ function Game() {
       {gameOver ? (
         <div className="game-over">
           <h3>{message}</h3>
-          <p>Your Score: {solvedCount}</p>
+          <p>Your Score: {score}</p> {/* Display the calculated score here */}
           <button onClick={() => navigate("/levelboard")}>Play Again</button>
         </div>
       ) : (
@@ -118,8 +147,7 @@ function Game() {
               </div>
             )}
 
-            {/* Feedback message */}
-            <p className={`message ${message === "Correct!" ? "correct" : "wrong"}`}>
+            <p className={message === "Correct!" ? "correct" : "wrong"}>
               {message}
             </p>
 
