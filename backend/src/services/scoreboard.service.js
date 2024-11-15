@@ -49,3 +49,30 @@ export async function recalculateRanks() {
     console.error("Failed to recalculate ranks:", error);
   }
 }
+
+// Function to retrieve user info by userId
+export const getUserInfoById = async (userId) => {
+    try {
+      // Find the user's latest score entry
+      const userScore = await Scoreboard.findOne({ userId }).sort({ updatedAt: -1 });
+  
+      // If user data is not found, return null
+      if (!userScore) {
+        return null;
+      }
+  
+      // Count the total number of entries for the given userId to get the number of games played
+      const gamesPlayed = await Scoreboard.countDocuments({ userId });
+  
+      // Return an object with the user's info
+      return {
+        username: userScore.username,
+        rank: userScore.rank,
+        score: userScore.score,
+        gamesPlayed,
+      };
+    } catch (error) {
+      console.error("Error fetching user info:", error);
+      throw error;
+    }
+  };
