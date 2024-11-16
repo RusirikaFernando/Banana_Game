@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useAuth } from "../../context/AuthContext";
 import "./game.scss";
 
 function Game() {
   const location = useLocation();
   const navigate = useNavigate();
+  const { user } = useAuth(); // Access user from AuthContext
   const [chances, setChances] = useState(location.state?.chances || 5);
   const [questionData, setQuestionData] = useState(null);
   const [userAnswer, setUserAnswer] = useState("");
@@ -16,9 +18,16 @@ function Game() {
   const [message, setMessage] = useState("");
   const [score, setScore] = useState(0); // New state for score
 
-  // Hardcoded user information
-  const userId = "6452341";
-  const username = "feb";
+  // Hardcoded user information - Replace with dynamic context values
+  const userId = user?.id || "defaultUserId";  // Use user ID from context
+  const username = user?.username || "defaultUsername";  // Use username from context
+
+  // Log the user object (userId and username) to the console
+  useEffect(() => {
+    if (user) {
+      console.log({ userId, username });
+    }
+  }, [user, userId, username]);
 
   useEffect(() => {
     if (!location.state) {
@@ -61,6 +70,7 @@ function Game() {
   };
 
   const endGame = async () => {
+    if (gameOver) return; // Prevent multiple calls to endGame
     setGameOver(true);
     setQuestionData(null);
 
@@ -104,9 +114,10 @@ function Game() {
   useEffect(() => {
     const timer = setInterval(() => {
       setTimeLeft((prevTime) => {
-        if (prevTime === 1) {
-          endGame();
+        if (prevTime <= 1) {
+          clearInterval(timer);
           setMessage("Game Over! Time is up.");
+          endGame();
           return 0;
         }
         return prevTime - 1;
@@ -114,7 +125,7 @@ function Game() {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [gameOver]);
 
   const handleNumberClick = (number) => {
     setUserAnswer(number.toString());
