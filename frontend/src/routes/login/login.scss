@@ -12,6 +12,25 @@
   box-sizing: border-box;
   //background-color: #333;
 
+  .message {
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+  }
+  
+  .message.success {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .message.error {
+    background-color: #f44336;
+    color: white;
+  }
+  
+
   .formContainer {
     
     width: 400px;
@@ -66,6 +85,7 @@
         border-bottom: 1px solid gray;
         width: max-content;
       }
+     
     }
   }
 }
