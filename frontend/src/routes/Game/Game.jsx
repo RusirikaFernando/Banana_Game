@@ -88,7 +88,9 @@ function Game() {
 
     // Send score to the server
     try {
-      await axios.post("http://localhost:8800/add-score/add-score", scoreData);
+      await axios.post("http://localhost:8800/add-score/add-score", scoreData, {
+        withCredentials: true, // Allow sending cookies (including httpOnly)
+      });
       console.log("Score sent successfully:", scoreData);
     } catch (error) {
       console.error("Error sending score:", error);
