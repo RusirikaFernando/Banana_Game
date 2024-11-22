@@ -34,7 +34,7 @@ function App() {
         {
           path: "/leaderboard",
           element: <Leaderboard1 /> 
-          //element: <Leaderboard1 data={leaderboardData}/> 
+           
         },
         {
           path: "/profile",
