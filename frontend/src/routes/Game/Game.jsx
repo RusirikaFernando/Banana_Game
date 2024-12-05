@@ -77,11 +77,11 @@ function Game() {
     // Calculate score and set it in the state
     const calculatedScore = calculateScore(location.state?.level, solvedCount);
     setScore(calculatedScore);
+    console.log(score);
 
     // Create the JSON object to send
     const scoreData = {
-      userId: userId,
-      username: username,
+     
       score: calculatedScore,
       date: new Date().toISOString()
     };

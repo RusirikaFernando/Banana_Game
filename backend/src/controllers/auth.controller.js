@@ -27,10 +27,11 @@ export const register = async (req, res) => {
  * @returns {void}
  */
 export const login = async (req, res) => {
-  const { username, password } = req.body;
+  
 
   try {
-    const { token, user } = await loginUser({ username, password });
+    const { username, password } = req.body;
+    const { token, user } = await loginUser({ username, password }); // Call service function
 
     res
       .cookie("token", token, {
