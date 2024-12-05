@@ -1,0 +1,81 @@
+.Page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 595px;
+    width: 100%;
+    background-image: url("/assets/black1.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+  
+    .wrapperpage {
+      margin-right: 80px;
+      margin-bottom: 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.6); /* Semi-transparent background for readability */
+      border-radius: 10px;
+      position: relative; /* Add relative positioning to allow absolute positioning for the button */
+  
+      .intro {
+        color: #ffffff; /* White text for contrast */
+        font-family: Arial, sans-serif;
+  
+        h1 {
+          font-size: 2.5rem;
+          margin-bottom: 20px;
+         
+        }
+  
+        p {
+          font-size: 1.2rem;
+          margin-bottom: 15px;
+        }
+  
+        ul {
+          list-style-type: disc;
+          margin-left: 20px;
+  
+          li {
+            margin-bottom: 10px;
+            font-size: 1rem;
+  
+            ul {
+              margin-top: 10px;
+              margin-left: 20px;
+              list-style-type: circle;
+  
+              li {
+                font-size: 0.9rem;
+                color: gold;
+              }
+            }
+          }
+        }
+      }
+  
+      .startButton {
+        position: absolute; /* Position button absolutely inside the wrapper */
+        bottom: 20px; /* 20px from the bottom */
+        right: 20px; /* 20px from the right */
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        color: #fff;
+        background-color: #ff4500;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+  
+        &:hover {
+          background-color: #ff6347;
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+  
