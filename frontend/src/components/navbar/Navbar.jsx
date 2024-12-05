@@ -1,33 +1,31 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import './navbar.scss';
+import React from "react";
+import { Link } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext"; // Import Auth Context
+import "./navbar.scss";
 
 function Navbar() {
-  // Test state for user
-  const [user] = useState({ name: "John Doe" });
+  const { user } = useAuth(); // Access current user from AuthContext
 
   return (
     <nav>
       <div className="left">
         <a href="/home" className="logo">
-          <img src="./assets/logo.png" alt="" />
+          <img src="./assets/logo.png" alt="Logo" />
           <span>B_MATH</span>
         </a>
       </div>
       <div className="right">
-        {user ? (
+        {user && ( // Display user info only if logged in
           <div className="user">
-            <img src="./assets/user.jpg" alt="" />
-            <span>{user.name}</span>
+            <img
+              src={user.avatar || "./assets/user.jpg"} // Display avatar if available
+              alt="User Avatar"
+            />
+            <span>{user.name || user.username}</span> {/* Display user's name or username */}
             <Link to="/profile" className="profile">
               <span>Profile</span>
             </Link>
           </div>
-        ) : (
-          <>
-            <a href="/">Sign in</a>
-            <a href="/" className="register">Sign up</a>
-          </>
         )}
       </div>
     </nav>
