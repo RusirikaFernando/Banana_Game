@@ -9,54 +9,54 @@ import Profile from "./routes/Profile/profile";
 import LevelBoard from "./routes/levels/LevelBoard";
 import Game from "./routes/Game/Game";
 import Welcome from "./routes/Welcomepage/welcome";
+
 //import Scoketboard from "./socket/socketboard";
 
- 
- 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/", // Root path
-      element: <Layout/>, // Render Layout component at the root path
-      children:[
+      element: <Layout />, // Render Layout component at the root path
+      children: [
         {
-          path:"/",
-          element:<Welcome/>
+          path: "/",
+          element: <Welcome />,
         },
         {
-          path:"/home",
-          element:<HomePage/>
+          path: "/home",
+          element: <HomePage />,
         },
         {
-          path:"/login",
-          element:<Login/>
+          path: "/login",
+          element: <Login />,
         },
-        
+
         {
-          path:"/register",
-          element:<Register/>
+          path: "/register",
+          element: <Register />,
         },
         {
           path: "/leaderboard",
-          element: <Leaderboard1 /> 
-           
+          element: <Leaderboard1 />,
         },
         {
           path: "/profile",
-          element: <Profile />
+          element: <Profile />,
         },
         {
-          path: "/levelboard", 
-          element: <LevelBoard />
+          path: "/levelboard",
+          element: <LevelBoard />,
         },
-        { path: "/game", element: <Game /> },
-       // { path: "/socket", element: <Scoketboard /> },
+        {
+          path: "/game",
+          element: <Game />,
+        },
+        // { path: "/socket", element: <Scoketboard /> },
       ],
     },
   ]);
- 
+
   return <RouterProvider router={router} />;
 }
- 
+
 export default App;
- 
