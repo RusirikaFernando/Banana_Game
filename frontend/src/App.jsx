@@ -8,6 +8,7 @@ import HomePage from "./routes/Homepage/home";
 import Profile from "./routes/Profile/profile";
 import LevelBoard from "./routes/levels/LevelBoard";
 import Game from "./routes/Game/Game";
+import Welcome from "./routes/Welcomepage/welcome";
 //import Scoketboard from "./socket/socketboard";
 
  
@@ -20,6 +21,10 @@ function App() {
       children:[
         {
           path:"/",
+          element:<Welcome/>
+        },
+        {
+          path:"/home",
           element:<HomePage/>
         },
         {
