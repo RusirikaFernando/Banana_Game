@@ -35,7 +35,7 @@ function Login() {
         console.log(data.user);
 
         // Navigate to the /home page
-        navigate("/");
+        navigate("/home");
       } else {
         setMessage(data.message || "Login Failed");
         setMessageType("error");

@@ -9,7 +9,7 @@ function Navbar() {
   return (
     <nav>
       <div className="left">
-        <a href="/" className="logo">
+        <a href="/home" className="logo">
           <img src="./assets/logo.png" alt="" />
           <span>B_MATH</span>
         </a>
