@@ -35,9 +35,9 @@ export const loginUser = async ({ username, password }) => {
   if (!isPasswordValid) throw { status: 400, message: "Invalid Credentials!" };
 
   // Generate JWT Token
-  const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET_KEY, {
+  const token = jwt.sign({ id: user._id,  username:user.username  }, process.env.JWT_SECRET_KEY, {
     expiresIn: "7d",
   });
 
-  return { token, user: { id: user._id, username: user.username } };
+  return { token, user: {  username: user.username } };
 };
